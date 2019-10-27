@@ -28,7 +28,8 @@ export class UsersComponent implements OnInit {
           city: 'Budapest',
           state: 'Budapest'
         },
-        registered: new Date('03/11/2019 10:09:09')
+        registered: new Date('03/11/2019 10:09:09'),
+        isHidden: true
       }, {
         firstName: 'Gulash',
         lastName: 'Suppe',
@@ -38,7 +39,8 @@ export class UsersComponent implements OnInit {
           city: 'Debrecen',
           state: 'Koros'
         },
-        registered: new Date('11/08/2019 12:11:09')
+        registered: new Date('11/08/2019 12:11:09'),
+        isHidden: true
       }, {
         firstName: 'Elek',
         lastName: 'Peterfy',
@@ -49,7 +51,8 @@ export class UsersComponent implements OnInit {
           state: 'Pest'
         },
         isActive: true,
-        registered: new Date('11/08/2016 08:11:09')
+        registered: new Date('11/08/2016 08:11:09'),
+        isHidden: true
       }
     ]
 
@@ -62,6 +65,10 @@ export class UsersComponent implements OnInit {
 
   onAddUserClick(event) {
     console.log(event);
+  }
+
+  toggleUserHide(user: User) {
+    user.isHidden = !user.isHidden;
   }
 
 }

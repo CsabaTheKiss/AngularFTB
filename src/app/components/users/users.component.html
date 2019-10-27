@@ -1,17 +1,19 @@
 <h2>Users:</h2>
-<button
-    class="btn btn-block mb-3"
-    [disabled]="!isAddNewUserEnabled"
-    (click)="onAddUserClick($event)"
->
+<button (click)="onAddUserClick($event)" [disabled]="!isAddNewUserEnabled" class="btn btn-block mb-3">
     Add New User
 </button>
 <ul *ngIf="isLoaded && users?.length > 0" class="list-unstyled">
     <li *ngFor="let user of users" [class.bg-light]="user.isActive" class="card card-body mb-2">
         <div class="container">
             <h3>{{user.firstName}}
-                {{user.lastName}}</h3>
-            <ul *ngIf="showExtended && user.age && user.address" class="list-group">
+                {{user.lastName}}
+            </h3>
+            <small *ngIf="user.age && user.address">
+                <button class="btn btn-dark btn-sm" (click)="toggleUserHide(user)">
+                    <i [ngClass]="user.isHidden ? 'fa fa-plus' : 'fa fa-minus'"></i>
+                </button>
+            </small>
+            <ul *ngIf="!user.isHidden && user.age && user.address" class="list-group">
                 <li class="list-group-item">Age:
                     {{ user.age }}
                 </li>
