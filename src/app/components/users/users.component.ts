@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
           city: 'Budapest',
           state: 'Budapest'
         },
-        image: 'http://lorempixel.com/600/600/people/3'
+        registered: new Date('03/11/2019 10:09:09')
       }, {
         firstName: 'Gulash',
         lastName: 'Suppe',
@@ -38,7 +38,7 @@ export class UsersComponent implements OnInit {
           city: 'Debrecen',
           state: 'Koros'
         },
-        image: 'http://lorempixel.com/600/600/people/2'
+        registered: new Date('11/08/2019 12:11:09')
       }, {
         firstName: 'Elek',
         lastName: 'Peterfy',
@@ -48,7 +48,8 @@ export class UsersComponent implements OnInit {
           city: 'Szentendre',
           state: 'Pest'
         },
-        image: 'http://lorempixel.com/600/600/people/1'
+        isActive: true,
+        registered: new Date('11/08/2016 08:11:09')
       }
     ]
 

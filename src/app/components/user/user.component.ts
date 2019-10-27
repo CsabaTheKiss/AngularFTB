@@ -15,15 +15,15 @@ user: User;
     }
 
     ngOnInit() {
-        this.user = {
-            firstName: 'Jhon',
-            lastName: 'Doe',
-            age: 33,
-            address: {
-                street: 'utca',
-                city: 'Budapest',
-                state: 'Budapest'
-            }
-        }
+        // this.user = {
+        //     firstName: 'Jhon',
+        //     lastName: 'Doe',
+        //     age: 33,
+        //     address: {
+        //         street: 'utca',
+        //         city: 'Budapest',
+        //         state: 'Budapest'
+        //     }
+        // }
     }
 }
