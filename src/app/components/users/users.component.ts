@@ -11,7 +11,7 @@ import { User } from '../../models/User';
 export class UsersComponent implements OnInit {
 
   users: User[];
-  showExtended: boolean = true;
+  showExtended: boolean = false;
   isLoaded: boolean = true;
   isAddNewUserEnabled: boolean = true;
 
@@ -58,6 +58,10 @@ export class UsersComponent implements OnInit {
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  onAddUserClick(event) {
+    console.log(event);
   }
 
 }

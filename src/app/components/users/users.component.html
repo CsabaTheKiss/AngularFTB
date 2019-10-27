@@ -1,5 +1,9 @@
 <h2>Users:</h2>
-<button class="btn btn-block mb-3" disabled="!isAddNewUserEnabled">
+<button
+    class="btn btn-block mb-3"
+    [disabled]="!isAddNewUserEnabled"
+    (click)="onAddUserClick($event)"
+>
     Add New User
 </button>
 <ul *ngIf="isLoaded && users?.length > 0" class="list-unstyled">
