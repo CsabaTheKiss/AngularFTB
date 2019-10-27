@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = false;
   isLoaded: boolean = true;
   isAddNewUserEnabled: boolean = true;
+  isUserFormVisible: boolean = false;
 
   constructor() { }
 
@@ -69,6 +70,10 @@ export class UsersComponent implements OnInit {
 
   toggleUserHide(user: User) {
     user.isHidden = !user.isHidden;
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
   }
 
 }
