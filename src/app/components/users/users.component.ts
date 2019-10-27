@@ -48,11 +48,10 @@ export class UsersComponent implements OnInit {
       }
     ]
 
-    this.showExtended = false;
+    this.showExtended = true;
   }
 
   addUser(user: User) {
-    // stuff
     this.users.push(user);
   }
 

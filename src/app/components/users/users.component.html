@@ -1,14 +1,22 @@
 <h2>Users:</h2>
-<ul *ngIf="isLoaded && users?.length > 0;">
-    <li *ngFor="let user of users">
+<ul
+    *ngIf="isLoaded && users?.length > 0"
+    class="list-unstyled"
+>
+    <li
+        *ngFor="let user of users"
+        class="card card-body mb-2"
+    >
         <h3>{{user.firstName}}
             {{user.lastName}}</h3>
-        <ul *ngIf="showExtended && user.age && user.address">
-            <li>Age:
-                {{ user.age }}</li>
-            <li>Address:
+        <ul class="list-group" *ngIf="showExtended && user.age && user.address">
+            <li class="list-group-item">Age:
+                {{ user.age }}
+            </li>
+            <li class="list-group-item">Address:
                 {{user.address.street}}
-                {{user.address.country}}</li>
+                {{user.address.country}}
+            </li>
         </ul>
     </li>
 </ul>
