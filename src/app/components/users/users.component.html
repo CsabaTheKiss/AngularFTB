@@ -10,20 +10,83 @@
     *ngIf="isUserFormVisible"
 >
     <h2>New User Details</h2>
-    <form (submit)="onSubmit($event)">
+    <form #newUserForm="ngForm" (ngSubmit)="onSubmit(newUserForm)">
         <div class="form-group">
             <label>First Name</label>
-            <input type="text" [(ngModel)]="newUser.firstName" class="form-control" name="firstName">
+            <input
+                type="text"
+                [(ngModel)]="newUser.firstName"
+                [ngClass]="{ 'is-invalid': newUserFirstName.errors && newUserFirstName.touched }"
+                class="form-control"
+                name="firstName"
+                #newUserFirstName="ngModel"
+                required
+                minlength="2"
+            >
+            <div
+                class="invalid-feedback"
+                [hidden]="!newUserFirstName.errors?.required"
+            >
+                First name required
+            </div>
+            <div
+                class="invalid-feedback"
+                [hidden]="!newUserFirstName.errors?.minlength"
+            >
+                Must be at leadt 2 characters
+            </div>
         </div>
         <div class="form-group">
             <label>Last Name</label>
-            <input type="text" [(ngModel)]="newUser.lastName" class="form-control" name="lastName">
+            <input
+                type="text"
+                [(ngModel)]="newUser.lastName"
+                [ngClass]="{ 'is-invalid': newUserLastName.errors && newUserLastName.touched }"
+                class="form-control"
+                name="lastName"
+                #newUserLastName="ngModel"
+                required
+                minlength="2"
+            >
+            <div
+                class="invalid-feedback"
+                [hidden]="!newUserLastName.errors?.required"
+            >
+                Last name required
+            </div>
+            <div
+                class="invalid-feedback"
+                [hidden]="!newUserLastName.errors?.minlength"
+            >
+                Must be at leadt 2 characters
+            </div>
         </div>
         <div class="form-group">
             <label>E-mail</label>
-            <input type="text" [(ngModel)]="newUser.email" class="form-control" name="email">
+            <input
+                type="email"
+                [(ngModel)]="newUser.email"
+                [ngClass]="{ 'is-invalid': newUserEmail.errors && newUserEmail.touched }"
+                class="form-control"
+                name="email"
+                #newUserEmail="ngModel"
+                required
+                pattern='^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
+            >
+            <div
+                class="invalid-feedback"
+                [hidden]="!newUserEmail.errors?.required"
+            >
+                Email required
+            </div>
+            <div
+                class="invalid-feedback"
+                [hidden]="!newUserEmail.errors?.pattern"
+            >
+                Email is not valid
+            </div>
         </div>
-        <button (click)="onSaveUserClick()" [disabled]="newUser.firstName == '' || newUser.lastName == ''" class="btn btn-block mb-3">
+        <button (click)="onSaveUserClick()" [disabled]="!newUserForm.form.valid" class="btn btn-block mb-3">
             Save
         </button>
     </form>
