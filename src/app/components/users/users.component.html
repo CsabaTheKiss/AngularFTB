@@ -13,29 +13,29 @@
     <form (submit)="onSubmit($event)">
         <div class="form-group">
             <label>First Name</label>
-            <input type="text" class="form-control" name="firstName">
+            <input type="text" [(ngModel)]="newUser.firstName" class="form-control" name="firstName">
         </div>
         <div class="form-group">
             <label>Last Name</label>
-            <input type="text" class="form-control" name="lastName">
+            <input type="text" [(ngModel)]="newUser.lastName" class="form-control" name="lastName">
         </div>
         <div class="form-group">
             <label>Age</label>
-            <input type="number" class="form-control" name="age">
+            <input type="number" [(ngModel)]="newUser.age" class="form-control" name="age">
         </div>
         <div class="form-group">
             <label>Street Address</label>
-            <input type="text" class="form-control" name="street">
+            <input type="text" [(ngModel)]="newUser.address.street" class="form-control" name="street">
         </div>
         <div class="form-group">
             <label>City</label>
-            <input type="text" class="form-control" name="city">
+            <input type="text" [(ngModel)]="newUser.address.city" class="form-control" name="city">
         </div>
         <div class="form-group">
             <label>Country</label>
-            <input type="text" class="form-control" name="country">
+            <input type="text" [(ngModel)]="newUser.address.country" class="form-control" name="country">
         </div>
-        <button (click)="onAddUserClick($event)" [disabled]="!isAddNewUserEnabled" class="btn btn-block mb-3">
+        <button (click)="onSaveUserClick()" [disabled]="newUser.firstName == '' || newUser.lastName == ''" class="btn btn-block mb-3">
             Save
         </button>
     </form>

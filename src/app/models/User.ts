@@ -8,6 +8,6 @@ export interface User {
         state?: string
     },
     isActive?: boolean,
-    registered: any,
-    isHidden: boolean
+    registered?: any,
+    isHidden?: boolean
 }

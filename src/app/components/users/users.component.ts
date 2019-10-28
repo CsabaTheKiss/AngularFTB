@@ -10,6 +10,16 @@ import { User } from '../../models/User';
 })
 export class UsersComponent implements OnInit {
 
+  newUser: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: ''
+    }
+  };
   users: User[];
   showExtended: boolean = false;
   isLoaded: boolean = true;
@@ -60,12 +70,21 @@ export class UsersComponent implements OnInit {
     this.showExtended = true;
   }
 
-  addUser(user: User) {
-    this.users.push(user);
-  }
+  onSaveUserClick() {
+    this.newUser.isActive = true;
+    this.newUser.registered = new Date();
+    this.users.unshift(this.newUser);
 
-  onAddUserClick(event) {
-    console.log(event);
+    this.newUser = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      }
+    };
   }
 
   toggleUserHide(user: User) {
