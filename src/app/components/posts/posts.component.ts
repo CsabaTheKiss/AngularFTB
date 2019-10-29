@@ -10,6 +10,7 @@ import { Post } from '../../models/Post.model';
 export class PostsComponent implements OnInit {
 
   posts: Post[];
+
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -17,6 +18,10 @@ export class PostsComponent implements OnInit {
       console.log(posts);
       this.posts = posts;
     })
+  }
+
+  onNewPost(post: Post) {
+    this.posts.unshift(post);
   }
 
 }
